@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>생성형 AI 실습 가이드</title>
+    <meta name="description" content="한국임업진흥원 생성형 AI 활용 실무와 문서작성 실습용 웹페이지" />
+    
+    <style>:root{--bg: #f4f7f4;--card: #ffffff;--ink: #16241c;--muted: #55645b;--line: #d5dfd8;--brand: #1f6b44;--brand-ink: #ffffff;--accent: #e8f3ec;--warn: #b3261e;--focus: #0b57d0}@media (prefers-color-scheme: dark){:root:not([data-theme=light]){--bg: #0f1713;--card: #17231c;--ink: #eaf3ed;--muted: #a9bbb0;--line: #2c3e33;--brand: #5fc08a;--brand-ink: #08130d;--accent: #1d3326;--warn: #ff8a80;--focus: #8ab4f8}}*{box-sizing:border-box}html{font-size:18px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,Noto Sans KR,Malgun Gothic,system-ui,sans-serif;line-height:1.65;word-break:keep-all;overflow-wrap:anywhere}#app{max-width:960px;margin:0 auto;padding:0 16px 48px}.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:var(--card);padding:8px 12px;z-index:10}:focus-visible{outline:3px solid var(--focus);outline-offset:2px}main:focus{outline:none}.top{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0 10px;border-bottom:1px solid var(--line);display:grid;gap:8px}.brand{font-weight:800;color:var(--brand);text-decoration:none;font-size:1.05rem}nav[aria-label="주요 메뉴"]{display:flex;flex-wrap:wrap;gap:6px}nav[aria-label="주요 메뉴"] a{padding:8px 14px;border-radius:999px;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card)}nav[aria-label="주요 메뉴"] a[aria-current=page]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}.progress{position:relative;height:26px;background:var(--card);border:1px solid var(--line);border-radius:999px;overflow:hidden}.progress span{position:absolute;inset:0 auto 0 0;background:var(--accent);border-right:1px solid var(--brand);transition:width .2s}.progress em{position:relative;font-style:normal;font-size:.8rem;line-height:24px;padding-left:12px}h1{font-size:1.9rem;line-height:1.3;margin:.4rem 0 1rem}h2{font-size:1.25rem;margin:1.2rem 0 .5rem}h2:first-child{margin-top:0}h3{font-size:1.05rem;margin:1rem 0 .3rem}.eyebrow{color:var(--brand);font-weight:700;margin:1.2rem 0 0;font-size:.95rem}.lead{font-size:1.2rem}.muted,.source{color:var(--muted);font-size:.9rem}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:16px 0}.hero{padding:28px 22px}.hero h1{font-size:2.2rem}.card.note{border-style:dashed;background:var(--accent)}.card.danger{border-color:var(--warn)}.tag{background:var(--accent);border:1px solid var(--brand);padding:1px 8px;border-radius:6px;font-size:.8rem}.privacy{background:var(--accent);padding:10px 14px;border-radius:10px;font-size:.95rem}.cta{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}ul.plain,ol{padding-left:1.3rem;margin:.4rem 0}ol.how li,ul.plain li{margin:.35rem 0}ul.linklist,ol.linklist{list-style:none;padding:0}.linklist li,.flow li,.skill li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.linklist span,.flow span,.skill span{color:var(--muted);font-size:.9rem;text-align:right}.skill{list-style:none;padding:0}.flow{list-style:none;padding:0;margin:0}.example{background:var(--accent);border-left:4px solid var(--brand);padding:10px 14px;border-radius:6px;margin:.3rem 0}.excerpt{background:var(--bg);border:1px dashed var(--line);border-radius:8px;padding:10px 14px;font-size:.9rem;color:var(--muted);margin:8px 0 12px}.excerpt span{display:block;font-weight:700;color:var(--ink);margin-bottom:4px}label{display:block;font-weight:700;margin:.8rem 0 .3rem}textarea{width:100%;font:inherit;font-size:1rem;padding:12px 14px;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:10px;resize:vertical;min-height:96px}.checks{list-style:none;padding:0;margin:0 0 8px}.checks label{font-weight:500;display:flex;gap:10px;align-items:flex-start;padding:10px 0;margin:0;cursor:pointer}.checks input{width:24px;height:24px;accent-color:var(--brand);flex:none;margin-top:3px}.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:6px;font:inherit;font-weight:700;min-height:48px;padding:10px 18px;border-radius:10px;border:2px solid var(--brand);cursor:pointer;text-decoration:none;background:var(--card);color:var(--brand)}.btn.primary{background:var(--brand);color:var(--brand-ink)}.btn.warn{border-color:var(--warn);color:var(--warn)}.btn.big{min-height:56px;font-size:1.05rem;padding:12px 22px}.btn small{font-weight:400;opacity:.8}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.status{color:var(--brand);font-weight:700}.pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin:20px 0}.pager .btn{flex:1 1 260px}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.95rem}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:var(--muted);font-size:.9rem;padding:16px 0}.switch{display:flex;gap:8px;align-items:center;margin:0;font-weight:500}.switch input{width:20px;height:20px}@media (max-width: 600px){html{font-size:17px}h1{font-size:1.55rem}.hero h1{font-size:1.8rem}.linklist li,.flow li,.skill li{flex-direction:column;gap:2px}.linklist span,.flow span,.skill span{text-align:left}.btn{width:100%}}@media (min-width: 1100px){html{font-size:20px}}@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+  </head>
+  <body>
+    <a class="skip" href="#main">본문 바로가기</a>
+    <div id="app"></div>
+  <script type="module">(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))l(a);new MutationObserver(a=>{for(const i of a)if(i.type==="childList")for(const r of i.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&l(r)}).observe(document,{childList:!0,subtree:!0});function e(a){const i={};return a.integrity&&(i.integrity=a.integrity),a.referrerPolicy&&(i.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?i.credentials="include":a.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function l(a){if(a.ep)return;a.ep=!0;const i=e(a);fetch(a.href,i)}})();const u={org:"한국임업진흥원",title:"생성형 AI 활용 실무와 문서작성",subtitle:"프롬프트 한 줄이 아니라, 내 업무를 AI에게 설명하는 방법을 바꾸는 실습",goal:"실습을 마치면 내 업무에 바로 쓸 수 있는 프롬프트, 엑셀 자동화 코드, 재사용 지침, 웹 도구 프로토타입을 직접 만들어 본다.",audience:"일반 사무직 · 엑셀은 사용하지만 VBA와 코딩은 처음인 수준 (가정)",privacy:"이 페이지에 입력한 내용은 이 브라우저(내 컴퓨터)에만 저장되며 외부 서버로 전송되지 않는다."},T=[{name:"ChatGPT",desc:"범용 대화·문서 작성",url:"https://chatgpt.com"},{name:"Google Gemini",desc:"구글 계정 연동 대화·바이브 코딩",url:"https://gemini.google.com"},{name:"클로바노트",desc:"음성 녹음 → 텍스트 변환",url:"https://clovanote.naver.com"},{name:"Gemini Notebook",desc:"자료 기반 리서치·요약 (NotebookLM)",url:"https://notebooklm.google.com"},{name:"Gamma AI",desc:"PPT·문서 자동 제작",url:"https://gamma.app"},{name:"Felo AI",desc:"다국어 AI 검색",url:"https://felo.ai"},{name:"Recraft AI",desc:"AI 이미지·아트보드",url:"https://www.recraft.ai"},{name:"Napkin AI",desc:"글을 도식·인포그래픽으로",url:"https://www.napkin.ai"},{name:"Flow (나노바나나)",desc:"구글 영상·이미지 창작",url:"https://labs.google/flow"},{name:"Readray (구 Lilys AI)",desc:"유튜브·PDF·웹 요약",url:"https://readray.ai"},{name:"Grok",desc:"실시간 정보 대화",url:"https://grok.com"},{name:"비밀번호 안전성 테스트",desc:"비밀번호 강도 점검 (실제 비밀번호는 입력 금지)",url:"https://www.security.org/how-secure-is-my-password/"},{name:"Codex",desc:"ChatGPT 코딩 에이전트",url:"https://chatgpt.com/codex"}],w=[{id:"research",label:"실습 1 · 리서치"},{id:"excel",label:"실습 2 · 엑셀"},{id:"skill",label:"스킬 · 재사용 지침"},{id:"vibe",label:"바이브 코딩"}],G="보드(Padlet Drive)의 원문 프롬프트를 아래 칸에 붙여 넣고, [ ] 안의 내용을 내 업무로 바꿔 사용한다.",n=[{id:"r1",section:"research",title:"인터뷰로 내 업무와 AI 활용 환경 파악하기",minutes:15,kind:"board",source:"보드 · 실습 1 · 0_인터뷰",goal:"AI가 내 실제 업무를 질문으로 파악하고, 개인별 AI 활용 기본 지침을 만들어 주게 한다.",steps:["프롬프트 원문을 ChatGPT 또는 Gemini에 붙여 넣는다.","AI가 묻는 질문에 내가 실제로 맡은 업무 중심으로 답한다. (산림·임업 정책, 사업 기획·운영, 임업인·기업 지원 등)",'인터뷰가 끝나면 AI가 정리한 "개인별 AI 활용 기본 지침"을 복사해 아래 결과 메모에 붙여 둔다.'],prompt:{label:"0_인터뷰 프롬프트",excerpt:"역할: 한국임업진흥원 직원의 실제 업무와 생성형 AI 활용 환경을 파악하고, 인터뷰 답변을 바탕으로 개인별 AI 활용 기본 지침을 작성하는 인터뷰 진행자이자 업무 분석 전문가… (보드 썸네일에서 확인된 앞부분)"},example:'예: "저는 사업 기획팀에서 보조금 사업 공고문과 결과보고서를 주로 작성합니다."',tips:['직함보다 "하루 동안 실제로 하는 일"을 말할수록 지침이 정교해진다.',"개인정보·내부 비공개 자료는 입력하지 않는다."],checklist:["AI가 내 업무를 3가지 이상 구체적으로 되물었다","결과 지침을 복사해 두었다"],reflection:"이 지침을 매번 처음에 붙여 넣는다면, 내 업무 중 가장 먼저 시간이 줄어들 일은 무엇인가?"},{id:"r2",section:"research",title:"Deep Research로 산림·임업 통계 보고서 만들기",minutes:25,kind:"board",source:"보드 · 실습 1 · 3_Deep Research(프롬프트) / 결과물",goal:"출처가 있는 공식 자료를 근거로 정책·통계 동향 보고서 초안을 얻고, 사실과 해석을 구분해 검증한다.",steps:["ChatGPT 또는 Gemini에서 Deep Research(심층 리서치) 기능을 켠다.","프롬프트 원문을 붙여 넣어 실행한다. (산림청·한국임업진흥원 등 공식 자료 기반, 통계는 기준연도·발표일·출처 표기)","결과 보고서의 표에서 기준연도·발표일·출처가 모두 적혀 있는지 확인한다.",'근거가 불분명한 수치는 "확인 불가"로 표시하게 다시 요청한다.'],prompt:{label:"3_Deep Research 프롬프트",excerpt:"1. 산림·임업 정책과 기관별 역할 / 2. 산림·임업 현장의 주요 과제 / 3. 산림·임업 분야 디지털 전환 사례 / 4. 개인정보·보안·기록 관리 원칙 … (보드 썸네일에서 확인된 항목)"},example:'결과물 예시(보드): "산림·임업 주요 통계 동향 및 부문별 구조 변화 분석 보고서" — 지표명, 기준연도, 발표일, 작성 기관, 주요 수치, 의미를 표로 정리.',tips:["수치를 그대로 보고서에 옮기기 전에 원문 링크를 한 번은 열어 본다.",'통계표는 "지표 · 기준연도 · 출처 · 수치" 4열로 요청하면 검증이 쉽다.'],checklist:["모든 수치에 기준연도와 출처가 있다","링크 1개 이상 직접 열어 확인했다","사실과 AI의 해석을 구분했다"],reflection:"내가 AI 답변을 믿어도 되는 기준은 무엇인가? 우리 부서에 맞는 검증 규칙을 한 줄로 적어 본다."},{id:"r3",section:"research",title:"녹취록·이미지 자료를 AI에게 읽히기",minutes:15,kind:"board",source:"보드 · 실습 1 · 오디오 텍스트 파일, 인터넷 사용 언어 순위",goal:"녹취록 요약과 차트 이미지 해석으로, 텍스트가 아닌 자료도 AI에게 맡기는 방법을 익힌다.",steps:['오디오 텍스트 파일(녹취록)을 AI에 첨부하고 "핵심 논점 3개, 결정사항, 할 일"로 요약시킨다.','인터넷 사용 언어 순위 이미지를 첨부하고 "이 차트에서 읽을 수 있는 사실만" 3줄로 말하게 한다.',"두 결과를 비교해, AI가 추측한 문장이 섞여 있는지 찾아본다."],prompt:null,example:'추가 제안(프롬프트): "첨부한 자료에서 확인되는 사실과, 네가 추론한 내용을 구분해서 정리해 줘."',proposal:!0,tips:["이미지는 해상도가 낮으면 숫자를 잘못 읽는다. 읽은 숫자를 다시 말하게 해 확인한다."],checklist:["요약에서 사실과 추론이 구분되어 있다","차트 수치 중 하나를 직접 대조했다"],reflection:"내 업무에서 녹취·사진·스캔본으로 쌓여 있는 자료는 무엇인가?"},{id:"e1",section:"excel",title:"엑셀 양식 이미지를 보여 주고 표 구조 설계시키기",minutes:20,kind:"board",source:"보드 · 실습 2 · 엑셀 파일 이미지 / 4_엑셀 파일 제작(이미지 분석)",goal:"기존 엑셀 양식(행사예산 관리대장)을 캡처해 AI에 주고, 항목·함수·누락 열까지 제안받는다.",steps:['보드의 "행사예산 관리대장" 이미지(또는 내 부서 양식)를 AI에 첨부한다.',"프롬프트 원문을 붙여 넣는다. (정부형 엑셀 양식 분석 → 열 구조, 필요한 함수, 누락 열 제안)",'읽을 수 없는 항목은 AI가 임의로 만들지 않고 "판독 불가"로 표시하는지 확인한다.',"제안된 수식(예: 잔액 = 예산 − 집행)을 엑셀에 입력해 계산이 맞는지 확인한다."],prompt:{label:"4_엑셀 파일 제작(이미지 분석)",excerpt:"역할: 한국임업진흥원 업무에 활용되는 엑셀 양식 이미지 분석, 표 구조 설계, 함수 작성 전문가. 이미지에 있는 표의 항목과 구조를 파악하고 누락 칼럼을 제안한 뒤 계산·집계에 필요한 함수까지 정리 … (썸네일 확인분)"},example:"이미지 속 열: 일자 · 행사 · 내용 · 장소 · 참석인원 · 예산 · 집행 · 잔액 · 요청담당자",tips:["캡처에 개인정보나 내부 금액이 있으면 가려서 올린다."],checklist:["AI가 열 이름을 정확히 읽었다","제안 수식을 엑셀에서 직접 실행해 봤다"],reflection:"우리 부서에서 매달 손으로 다시 만드는 표는 무엇인가?"},{id:"e2",section:"excel",title:"VBA로 직원 주소록 자동 생성하기",minutes:20,kind:"board",source:"보드 · 실습 2 · 주소록 VBA / 5_VBA코드(주소록)",goal:"코드를 이해하지 않아도, 복사 → 실행 → 결과 확인 순서로 VBA 매크로를 돌려 본다.",steps:["엑셀에서 Alt+F11(Mac은 Option+F11)로 VBA 편집기를 연다.","삽입 → 모듈을 만들고 보드의 5_VBA코드(주소록)를 붙여 넣는다.",'매크로 "직원주소록_생성"을 실행해 시트 "직원주소록"과 표 "tblEmployeeDirectory"가 만들어지는지 확인한다.',"오류가 나면 오류 메시지를 그대로 AI에게 붙여 넣어 수정 코드를 받는다."],prompt:{label:"5_VBA코드(주소록)",excerpt:'Option Explicit / SHEET_NAME = "직원주소록", TABLE_NAME = "tblEmployeeDirectory" / Public Sub 직원주소록_생성() … (썸네일 확인분)'},example:'추가 제안(오류 요청문): "아래 VBA를 실행하니 이 오류가 나. 원인과 수정된 전체 코드를 줘: [오류 메시지]"',tips:["파일은 반드시 .xlsm(매크로 사용 통합 문서)으로 저장한다.","원본 파일은 복사본을 만들어 실습한다."],checklist:["매크로가 오류 없이 실행되었다","결과 시트를 확인했다"],reflection:"코드를 몰라도 실행할 수 있다는 것이 업무 자동화에 어떤 변화를 주는가?"},{id:"e3",section:"excel",title:"가상 데이터로 현황표·인사이트·대시보드 만들기",minutes:25,kind:"board",source:"보드 · 실습 2 · 6_데이터 분석 가상데이터 / 6_데이터 분석 VBA",goal:"접수현황 원본 데이터에서 유형×상태 현황표, 인사이트, KPI 카드와 차트 대시보드를 한 번에 만든다.",steps:['보드의 6_데이터 분석 가상데이터를 엑셀 시트 "접수현황"에 넣는다. (아래 샘플 CSV로 대체 가능)',"6_데이터 분석 VBA를 모듈에 붙여 넣고 실행한다.",'"현황표", "인사이트", "대시보드" 3개 시트가 생기는지 확인한다. 원본 시트는 수정하지 않는다.',"인사이트 시트의 문장 하나를 골라, 숫자가 현황표와 일치하는지 대조한다."],prompt:{label:"6_데이터 분석 VBA",excerpt:'접수 데이터 분석 도구(표준 모듈 1개) — 1) 현황표_생성: 유형×상태 집계표 2) 인사이트_생성: 사실 수치 위주(해석 없이) 3) 대시보드_생성: KPI 카드 4개 + 차트 3개. 원본 "접수현황" 시트는 읽기만 하고 수정하지 않는다. (썸네일 확인분)'},sample:"receipts",example:"샘플 열: 접수번호 · 접수일 · 접수경로 · 유형 · 우선순위 · 담당부서 · 상태",tips:["VBA는 열 위치가 아니라 머리글 이름으로 찾는다. 머리글 이름을 바꾸면 동작하지 않는다."],checklist:["3개 시트가 생성되었다","인사이트 숫자 1개를 직접 검산했다"],reflection:"같은 데이터를 매달 받는 업무가 있다면, 이 도구를 어디에 재사용할 수 있는가?"},{id:"e4",section:"excel",title:"분석 결과를 부서별 시트로 자동 분리하기",minutes:15,kind:"board",source:"보드 · 실습 2 · 7_부서별 시트 분리 VBA코드(6번 파일 사용)",goal:"한 장의 데이터를 담당부서별 시트로 나누어 배포용 파일을 만든다.",steps:["6번 파일(접수현황)이 열려 있는 상태에서 새 모듈에 7번 VBA를 붙여 넣는다.",'매크로 "KFI_담당부서별시트분리"를 실행한다.','"부서별_분리결과" 시트와 부서별 시트가 생성되었는지 확인한다.'],prompt:{label:"7_부서별 시트 분리 VBA",excerpt:'KFI_SRC_SHEET = "접수현황", KFI_DEPT_HEADER = "담당부서", KFI_DONE_STATUS = "완료", 시트 이름 최대 31자 … (썸네일 확인분)'},sample:"receipts",example:"기준 열: 담당부서 / 시트 이름 제한: 31자",tips:["시트 이름에는 / \\ ? * [ ] : 를 쓸 수 없다. 코드가 이를 처리하는지 확인한다."],checklist:["부서 수만큼 시트가 만들어졌다","한 부서의 행 수가 원본과 일치한다"],reflection:"이 방식으로 배포 시간을 줄일 수 있는 우리 부서 업무는?"},{id:"s1",section:"skill",title:"반복 업무를 지침(스킬)으로 만들어 재사용하기",minutes:25,kind:"board",source:"보드 · 스킬 (회의록 정리 / 문제해결 / 라이프·비즈니스 코치 / 스킬 제작 스킬 / 보고서 초안 / 사업계획서 구조화)",goal:'한 번 만든 지침을 계속 불러 쓰는 방식으로, "매번 새로 설명하는 일"을 없앤다.',steps:["아래 6종 중 내 업무에 가장 가까운 지침 1개를 고른다.","해당 지침 원문을 ChatGPT(맞춤 지침/GPTs)나 Gemini(Gems)에 등록한다.","내 실제 자료(메모, 회의 내용 등)를 주고 결과를 받는다.",'결과가 아쉬운 부분을 "스킬 제작 스킬"에게 말해 지침을 고친다.'],skills:[{name:"회의록 정리",note:"논의·결정·할 일·담당자 구분, 확정되지 않은 내용은 별도 표시"},{name:"문제해결 코치",note:"조직 문제해결 전략가 · AI 기반 퍼실리테이터"},{name:"라이프·비즈니스 코치",note:"선택지 비교를 통해 스스로 결정하도록 돕는 코칭"},{name:"스킬 지침(요청사항) 제작",note:"업무 설명을 일관된 행동 지침으로 설계하는 아키텍트"},{name:"한국임업진흥원 보고서 초안",note:"메모·표·회의 내용으로 근거·수치·확인 사항을 점검하는 초안"},{name:"한국임업진흥원 사업계획서 구조화",note:"필요성·목적·대상·추진활동·산출물·예산·성과를 논리적으로 연결"}],prompt:{label:"스킬 원문 (선택한 지침)",excerpt:"스킬 원문은 Padlet Drive에서 복사해 아래 작업칸에 붙여 넣는다."},example:'추가 제안(점검 문장): "이 지침이 시키는 일 중, 내 업무에서 하면 안 되는 일이 있으면 알려 줘."',tips:["지침 안에 기관명·직군을 넣으면 결과가 일반론에서 실무형으로 바뀐다."],checklist:["지침 1개를 내 도구에 등록했다","실제 자료로 한 번 실행했다","지침 한 줄을 내 업무에 맞게 고쳤다"],reflection:"이번 주에 같은 지침으로 처리할 수 있는 일이 몇 건인가?"},{id:"v1",section:"vibe",title:"Gemini로 숲·임업 상식 퀴즈 랜딩페이지 만들기",minutes:25,kind:"board",source:"보드 · 바이브 코딩 · 8_바이브 코딩(프롬프트)(Gemini) / 가상데이터(이미지)",goal:"코드를 쓰지 않고 말로 설명해, 교육 시연용 퀴즈 게임과 행사 랜딩페이지를 만든다.",steps:['Gemini에 프롬프트 원문을 붙여 넣어 "숲과 임업 상식 퀴즈" 게임을 만든다.',"가상데이터 이미지(교육 행사 정보표: 행사명·일시·장소·대상·신청 기간·프로그램 등)를 첨부해 랜딩페이지를 만든다.","화면에서 마음에 들지 않는 점 하나를 말로 고쳐 달라고 요청한다."],prompt:{label:"8_바이브 코딩(프롬프트)(Gemini)",excerpt:'한국임업진흥원 교육에서 시연할 수 있는 "숲과 임업 상식 퀴즈" 웹게임을 만들어 주세요… (썸네일 확인분)'},example:'수정 요청 예: "버튼을 더 크게, 모바일에서도 한 화면에 보이게 해 줘."',tips:["한 번에 하나씩만 고치게 요청해야 결과가 안정적이다."],checklist:["동작하는 화면이 만들어졌다","수정 요청을 1회 이상 했다"],reflection:"이 방식으로 만들고 싶은 우리 부서 소규모 도구는?"},{id:"v2",section:"vibe",title:"Codex로 개인정보 자동 마스킹 웹 도구 만들기",minutes:30,kind:"board",source:"보드 · 바이브 코딩 · 9_바이브 코딩 프롬프트(ChatGPT Codex) / 9_가상데이터",goal:"엑셀·텍스트 속 개인정보를 브라우저 안에서만 마스킹하는 도구를 만들어, 보안 요구사항을 프롬프트에 넣는 법을 익힌다.",steps:["Codex에 프롬프트 원문을 붙여 넣는다. (순수 JavaScript, 엑셀 처리는 SheetJS 사용, 서버 전송 없음)","가상데이터(이름·성별·생년월일·연락처·이메일 40행)로 마스킹이 되는지 시험한다.",'"입력 데이터가 외부로 전송되지 않는다"는 안내 배지가 화면에 있는지 확인한다.',"마스킹이 빠진 항목을 찾아 보완을 요청한다."],prompt:{label:"9_바이브 코딩 프롬프트(ChatGPT Codex)",excerpt:"너는 공공기관 및 기업 실무자를 위한 웹 애플리케이션 전문 개발자야. 사내 민원 데이터나 엑셀 파일 내의 개인정보(PII)를 안전하게 비식별화할 수 있는 [개인정보 자동 마스킹 웹 서비스]를 만들어줘 … 기술 스택: HTML5, Tailwind CSS(CDN), 순수 Vanilla JavaScript, SheetJS (썸네일 확인분)"},sample:"pii",example:"마스킹 예: 홍길동 → 홍*동 / 010-1234-5678 → 010-****-5678",tips:["실제 개인정보로 시험하지 않는다. 반드시 가상 데이터를 쓴다.",'"외부 전송이 없다"는 요구는 프롬프트 맨 앞에 쓴다.'],checklist:["가상 데이터가 정상적으로 마스킹되었다","외부 전송 없음 안내가 화면에 있다","누락 항목을 찾아 수정했다"],reflection:'우리 기관 업무 중 "보안 조건"을 프롬프트에 먼저 써야 하는 일은 무엇인가?'}],V=G,m=(s,t)=>s[t%s.length];function L(){const s=["접수번호","접수일","접수경로","유형","우선순위","담당부서","상태"],t=["온라인","전화","방문","이메일","기관공문"],e=["산림사업 지원 문의","임업인 교육 신청","현장 점검 일정 조정","산림기술 정보 요청","임산물 유통 상담"],l=["높음","보통","낮음","긴급"],a=["산림사업지원부","임업인지원부","임산물유통지원부","산림기술협력부"],i=["접수","처리중","완료","보완요청"],r=[];for(let d=0;d<30;d++){const b=String(d%28+1).padStart(2,"0");r.push([`KFI-2026-${String(d+1).padStart(4,"0")}`,`2026-07-${b}`,m(t,d*3+1),m(e,d*2+1),m(l,d*5+2),m(a,d*7+3),m(i,d*11+2)])}return[s,...r]}function N(){const s=["번호","이름","성별","생년월일","연락처","이메일"],t=["김","이","박","최","정","강","조","윤"],e=["민수","서연","지훈","하윤","도현","수아","준서","예린"],l=[];for(let a=0;a<40;a++){const i=1970+a*7%35,r=String(a%12+1).padStart(2,"0"),d=String(a*3%28+1).padStart(2,"0");l.push([a+1,m(t,a*3+1)+m(e,a*5+2),a%2?"여":"남",`${i}-${r}-${d}`,`010-0000-${String(1e3+a*37).slice(-4)}`,`sample${a+1}@example.com`])}return[s,...l]}const S={receipts:{label:"접수현황 샘플 데이터(가상)",file:"receipts_sample.csv",build:L},pii:{label:"개인정보 마스킹 샘플(가상)",file:"pii_sample.csv",build:N}};function D(s){return s.map(t=>t.map(e=>`"${String(e).replace(/"/g,'""')}"`).join(",")).join(`\r
+`)}const C="kfpi-practice-v1",j=document.getElementById("app"),g=()=>({checks:{},work:{},memo:{},reflect:{},instructor:!1});let c=g();try{c={...g(),...JSON.parse(localStorage.getItem(C)||"{}")}}catch{c=g()}const h=()=>{try{localStorage.setItem(C,JSON.stringify(c))}catch{}},o=s=>String(s??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t]),y=s=>{const t=c.checks[s.id]||[];return s.checklist.every((e,l)=>t[l])},f=()=>n.filter(y).length,O=n.reduce((s,t)=>s+t.minutes,0);function R(s){const t=Math.round(f()/n.length*100),e=(l,a,i)=>`<a href="${l}" ${i?'aria-current="page"':""}>${a}</a>`;return`
+  <header class="top">
+    <a class="brand" href="#/">${o(u.org)} · AI 실습</a>
+    <nav aria-label="주요 메뉴">
+      ${e("#/","처음",s==="home")}
+      ${e("#/guide","실습 안내",s==="guide")}
+      ${e("#/step/"+n[0].id,"실습",s==="step")}
+      ${e("#/result","결과 정리",s==="result")}
+    </nav>
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${t}" aria-label="실습 진행률">
+      <span style="width:${t}%"></span><em>${f()}/${n.length} 단계</em>
+    </div>
+  </header>`}function x(s){if(!s.sample)return"";const t=S[s.sample];return`<button class="btn ghost" data-act="sample" data-key="${s.sample}">⬇ ${o(t.label)} 내려받기 <small>(추가 제안)</small></button>`}function F(){const s=w.map(t=>{const e=n.filter(l=>l.section===t.id);return`<li><strong>${o(t.label)}</strong><span>${e.length}단계 · 약 ${e.reduce((l,a)=>l+a.minutes,0)}분</span></li>`}).join("");return`
+  <section class="hero card">
+    <p class="eyebrow">${o(u.org)}</p>
+    <h1>${o(u.title)}</h1>
+    <p class="lead">${o(u.subtitle)}</p>
+    <p><strong>실습 후 만드는 결과물</strong> — ${o(u.goal)}</p>
+    <div class="cta">
+      <a class="btn primary big" href="#/step/${n[0].id}">실습 시작하기</a>
+      <a class="btn ghost big" href="#/guide">실습 안내 보기</a>
+    </div>
+    <p class="privacy">🔒 ${o(u.privacy)}</p>
+  </section>
+  <section class="card">
+    <h2>전체 흐름</h2>
+    <ul class="flow">${s}</ul>
+    <p class="muted">총 ${n.length}단계 · 약 ${O}분 (진행 속도에 따라 단계를 건너뛰어도 된다)</p>
+  </section>`}function M(){const s=T.map(e=>`<li><a href="${o(e.url)}" target="_blank" rel="noopener noreferrer">${o(e.name)}</a><span>${o(e.desc)}</span></li>`).join(""),t=n.map(e=>`<li><a href="#/step/${e.id}">${o(e.title)}</a><span>${e.minutes}분</span></li>`).join("");return`
+  <section class="card">
+    <h1>실습 안내</h1>
+    <h2>준비물</h2>
+    <ul class="plain">
+      <li>PC 브라우저 (엑셀 실습은 Excel 설치 PC, 매크로 사용 가능 환경)</li>
+      <li>ChatGPT 또는 Google Gemini 계정</li>
+      <li>보드(Padlet)의 첨부 자료 — 프롬프트 원문, VBA 코드, 가상 데이터</li>
+    </ul>
+    <h2>진행 방식</h2>
+    <ol>
+      <li>한 단계씩 순서대로 진행한다. 단계마다 <strong>목표 → 따라 하기 → 프롬프트 작업칸 → 결과 메모 → 점검</strong> 순이다.</li>
+      <li>프롬프트 원문은 보드에서 복사해 작업칸에 붙여 넣고, 내 업무에 맞게 고친 뒤 [복사] 버튼으로 AI에 붙여 넣는다.</li>
+      <li>실제 개인정보·내부 비공개 자료는 입력하지 않는다. 시험은 가상 데이터로 한다.</li>
+    </ol>
+    <p class="muted">대상 수준 가정: ${o(u.audience)}</p>
+  </section>
+  <section class="card"><h2>단계와 예상 시간</h2><ol class="plain linklist">${t}</ol></section>
+  <section class="card"><h2>사용 도구 모음 (보드 Website 섹션)</h2>
+    <ul class="plain linklist">${s}</ul>
+    <p class="muted">링크는 각 서비스의 대표 주소다. 보드에 연결된 주소와 다르면 보드 링크를 우선한다.</p>
+  </section>`}function K(s){const t=n.findIndex(p=>p.id===s),e=n[t];if(!e)return'<section class="card"><p>없는 단계다. <a href="#/">처음으로</a></p></section>';const l=w.find(p=>p.id===e.section),a=n[t-1],i=n[t+1],r=c.checks[e.id]||[],d=e.steps.map(p=>`<li>${o(p)}</li>`).join(""),b=(e.tips||[]).map(p=>`<li>${o(p)}</li>`).join(""),P=e.skills?`<h3>지침 6종</h3><ul class="plain skill">${e.skills.map(p=>`<li><strong>${o(p.name)}</strong><span>${o(p.note)}</span></li>`).join("")}</ul>`:"",E=e.prompt?`<section class="card" aria-labelledby="p-${e.id}">
+        <h2 id="p-${e.id}">프롬프트 작업칸</h2>
+        <p class="muted">${o(V)}</p>
+        <div class="excerpt"><span>${o(e.prompt.label)} · 보드 썸네일에서 확인된 부분</span>${o(e.prompt.excerpt)}</div>
+        <label for="w-${e.id}">내 프롬프트</label>
+        <textarea id="w-${e.id}" data-field="work" data-id="${e.id}" rows="8" placeholder="여기에 프롬프트 원문을 붙여 넣고 내 업무에 맞게 고친다.">${o(c.work[e.id]||"")}</textarea>
+        <div class="row">
+          <button class="btn primary" data-act="copy" data-id="${e.id}">프롬프트 복사</button>
+          <button class="btn ghost" data-act="clear-work" data-id="${e.id}">비우기</button>
+          ${x(e)}
+          <span class="status" role="status" aria-live="polite" id="st-${e.id}"></span>
+        </div>
+      </section>`:(e.sample,""),B=c.instructor?`<section class="card note"><h2>강사용 진행 보조 <small>(추가 제안)</small></h2>
+        <ul class="plain">
+          <li>시연 먼저: 강사가 ${e.minutes>20?"핵심 1~2단계":"전체"}를 화면으로 보여 준 뒤 수강생이 따라 한다.</li>
+          <li>막힘 신호: 결과가 일반론이면 "내 업무 3가지로 다시"를 요청하게 한다.</li>
+          <li>마무리 질문: ${o(e.reflection)}</li>
+        </ul></section>`:"";return`
+  <article>
+    <p class="eyebrow">${o(l.label)} · ${t+1}/${n.length} · 약 ${e.minutes}분 ${e.proposal?'· <b class="tag">추가 제안 단계</b>':""}</p>
+    <h1>${o(e.title)}</h1>
+    <section class="card">
+      <h2>이 단계의 목표</h2>
+      <p>${o(e.goal)}</p>
+      <h2>따라 하기</h2>
+      <ol class="how">${d}</ol>
+      ${P}
+      <h3>입력 예시</h3><p class="example">${o(e.example)}</p>
+      ${b?`<h3>작성 팁</h3><ul class="plain">${b}</ul>`:""}
+      <p class="source">자료 출처: ${o(e.source)}</p>
+    </section>
+    ${E}
+    ${e.sample&&!e.prompt?`<section class="card"><div class="row">${x(e)}</div></section>`:""}
+    <section class="card">
+      <h2>결과 메모</h2>
+      <label for="m-${e.id}">AI가 준 결과 중 남기고 싶은 내용</label>
+      <textarea id="m-${e.id}" data-field="memo" data-id="${e.id}" rows="6" placeholder="결과 일부를 붙여 넣거나 느낀 점을 적는다.">${o(c.memo[e.id]||"")}</textarea>
+    </section>
+    <section class="card">
+      <h2>자기 점검</h2>
+      <ul class="checks">
+        ${e.checklist.map((p,v)=>`<li><label><input type="checkbox" data-check="${e.id}:${v}" ${r[v]?"checked":""}/> ${o(p)}</label></li>`).join("")}
+      </ul>
+      <label for="r-${e.id}">${o(e.reflection)}</label>
+      <textarea id="r-${e.id}" data-field="reflect" data-id="${e.id}" rows="3">${o(c.reflect[e.id]||"")}</textarea>
+    </section>
+    ${B}
+    <nav class="pager" aria-label="단계 이동">
+      ${a?`<a class="btn ghost big" href="#/step/${a.id}">← 이전: ${o(a.title)}</a>`:"<span></span>"}
+      ${i?`<a class="btn primary big" href="#/step/${i.id}">다음: ${o(i.title)} →</a>`:'<a class="btn primary big" href="#/result">결과 정리로 →</a>'}
+    </nav>
+  </article>`}function A(){const s=[`# ${u.org} · ${u.title} 실습 결과`,""];for(const t of w){const e=n.filter(l=>l.section===t.id);s.push(`## ${t.label}`);for(const l of e)s.push(`### ${l.title} ${y(l)?"(완료)":"(미완료)"}`),c.work[l.id]&&s.push("","**내 프롬프트**","",c.work[l.id]),c.memo[l.id]&&s.push("","**결과 메모**","",c.memo[l.id]),c.reflect[l.id]&&s.push("",`**회고** — ${l.reflection}`,"",c.reflect[l.id]),s.push("")}return s.join(`
+`)}function H(){const s=n.map(t=>{const e=(c.checks[t.id]||[]).filter(Boolean).length,l=[c.work[t.id],c.memo[t.id],c.reflect[t.id]].filter(Boolean).length;return`<tr><td><a href="#/step/${t.id}">${o(t.title)}</a></td><td>${e}/${t.checklist.length}</td><td>${l}/3</td><td>${y(t)?"✅ 완료":"진행 중"}</td></tr>`}).join("");return`
+  <section class="card">
+    <h1>결과 확인 및 정리</h1>
+    <p>완료 ${f()} / ${n.length}단계. 아래 버튼으로 내 프롬프트·메모·회고를 한 번에 모아 가져갈 수 있다.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>단계</th><th>점검</th><th>작성칸</th><th>상태</th></tr></thead>
+      <tbody>${s}</tbody>
+    </table></div>
+    <div class="row">
+      <button class="btn primary" data-act="copy-all">전체 결과 복사</button>
+      <button class="btn ghost" data-act="download-all">Markdown 파일로 저장</button>
+      <span class="status" role="status" aria-live="polite" id="st-all"></span>
+    </div>
+  </section>
+  <section class="card">
+    <h2>마무리 회고</h2>
+    <ul class="plain">
+      <li>오늘 만든 것 중 내일 바로 내 업무에 쓸 것 한 가지는?</li>
+      <li>AI에게 더 정확히 설명했더니 달라진 점은?</li>
+      <li>우리 부서에 공유하고 싶은 지침 또는 도구는?</li>
+    </ul>
+  </section>
+  <section class="card danger">
+    <h2>내 입력 지우기</h2>
+    <p class="muted">공용 PC라면 실습 후 반드시 지운다. 이 브라우저에 저장된 모든 입력이 삭제된다.</p>
+    <button class="btn warn" data-act="reset-all">모든 입력 초기화</button>
+  </section>`}function k(){const s=location.hash.replace(/^#\/?/,""),[t,e]=s.split("/");let l="home",a;t==="guide"?(l="guide",a=M()):t==="step"?(l="step",a=K(e)):t==="result"?(l="result",a=H()):a=F(),j.innerHTML=`${R(l)}<main id="main" tabindex="-1">${a}</main>
+    <footer class="foot">
+      <label class="switch"><input type="checkbox" data-act="instructor" ${c.instructor?"checked":""}/> 강사용 진행 보조 보기</label>
+      <span>🔒 입력 내용은 이 브라우저에만 저장됩니다.</span>
+    </footer>`,window.scrollTo(0,0),document.getElementById("main").focus({preventScroll:!0})}function $(s,t){const e=document.getElementById(s);e&&(e.textContent=t)}async function I(s){try{return await navigator.clipboard.writeText(s),!0}catch{const t=document.createElement("textarea");t.value=s,document.body.appendChild(t),t.select();const e=document.execCommand("copy");return t.remove(),e}}function _(s,t,e){const l=new Blob(["\uFEFF"+t],{type:e}),a=document.createElement("a");a.href=URL.createObjectURL(l),a.download=s,document.body.appendChild(a),a.click(),a.remove(),setTimeout(()=>URL.revokeObjectURL(a.href),1e3)}document.addEventListener("click",async s=>{const t=s.target.closest("[data-act]");if(!t||t.tagName==="INPUT")return;const{act:e,id:l,key:a}=t.dataset;if(e==="copy"){const i=c.work[l]||"";if(!i.trim())return $("st-"+l,"복사할 내용이 없다. 먼저 프롬프트를 붙여 넣는다.");$("st-"+l,await I(i)?"복사했다.":"복사하지 못했다. 직접 선택해 복사한다.")}else if(e==="clear-work"){c.work[l]="",h();const i=document.getElementById("w-"+l);i&&(i.value=""),$("st-"+l,"비웠다.")}else if(e==="sample"){const i=S[a];_(i.file,D(i.build()),"text/csv;charset=utf-8")}else e==="copy-all"?$("st-all",await I(A())?"복사했다.":"복사하지 못했다."):e==="download-all"?_("ai_practice_result.md",A(),"text/markdown;charset=utf-8"):e==="reset-all"&&confirm("저장된 모든 입력과 점검 기록을 지운다. 계속할까?")&&(c=g(),h(),k())});document.addEventListener("input",s=>{const t=s.target;t.dataset.field&&(c[t.dataset.field][t.dataset.id]=t.value,h())});document.addEventListener("change",s=>{const t=s.target;if(t.dataset.check){const[e,l]=t.dataset.check.split(":"),a=c.checks[e]||[];a[Number(l)]=t.checked,c.checks[e]=a,h();const i=document.querySelector(".progress");if(i){const r=Math.round(f()/n.length*100);i.setAttribute("aria-valuenow",r),i.querySelector("span").style.width=r+"%",i.querySelector("em").textContent=`${f()}/${n.length} 단계`}}else if(t.dataset.act==="instructor"){c.instructor=t.checked,h();const e=window.scrollY;k(),window.scrollTo(0,e)}});window.addEventListener("hashchange",k);k();
+</script></body>
+</html>
