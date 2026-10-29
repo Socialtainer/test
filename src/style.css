@@ -1,0 +1,107 @@
+:root {
+  --bg: #f4f7f4;
+  --card: #ffffff;
+  --ink: #16241c;
+  --muted: #55645b;
+  --line: #d5dfd8;
+  --brand: #1f6b44;
+  --brand-ink: #ffffff;
+  --accent: #e8f3ec;
+  --warn: #b3261e;
+  --focus: #0b57d0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0f1713; --card: #17231c; --ink: #eaf3ed; --muted: #a9bbb0;
+    --line: #2c3e33; --brand: #5fc08a; --brand-ink: #08130d; --accent: #1d3326; --warn: #ff8a80; --focus: #8ab4f8;
+  }
+}
+* { box-sizing: border-box; }
+html { font-size: 18px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', system-ui, sans-serif;
+  line-height: 1.65; word-break: keep-all; overflow-wrap: anywhere;
+}
+#app { max-width: 960px; margin: 0 auto; padding: 0 16px 48px; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 8px; top: 8px; background: var(--card); padding: 8px 12px; z-index: 10; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+main:focus { outline: none; }
+
+.top { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 12px 0 10px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
+.brand { font-weight: 800; color: var(--brand); text-decoration: none; font-size: 1.05rem; }
+nav[aria-label='주요 메뉴'] { display: flex; flex-wrap: wrap; gap: 6px; }
+nav[aria-label='주요 메뉴'] a { padding: 8px 14px; border-radius: 999px; text-decoration: none; color: var(--ink); border: 1px solid var(--line); background: var(--card); }
+nav[aria-label='주요 메뉴'] a[aria-current='page'] { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.progress { position: relative; height: 26px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.progress span { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-right: 1px solid var(--brand); transition: width .2s; }
+.progress em { position: relative; font-style: normal; font-size: .8rem; line-height: 24px; padding-left: 12px; }
+
+h1 { font-size: 1.9rem; line-height: 1.3; margin: .4rem 0 1rem; }
+h2 { font-size: 1.25rem; margin: 1.2rem 0 .5rem; }
+h2:first-child { margin-top: 0; }
+h3 { font-size: 1.05rem; margin: 1rem 0 .3rem; }
+.eyebrow { color: var(--brand); font-weight: 700; margin: 1.2rem 0 0; font-size: .95rem; }
+.lead { font-size: 1.2rem; }
+.muted, .source { color: var(--muted); font-size: .9rem; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; margin: 16px 0; }
+.hero { padding: 28px 22px; }
+.hero h1 { font-size: 2.2rem; }
+.card.note { border-style: dashed; background: var(--accent); }
+.card.danger { border-color: var(--warn); }
+.tag { background: var(--accent); border: 1px solid var(--brand); padding: 1px 8px; border-radius: 6px; font-size: .8rem; }
+.privacy { background: var(--accent); padding: 10px 14px; border-radius: 10px; font-size: .95rem; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+
+ul.plain, ol { padding-left: 1.3rem; margin: .4rem 0; }
+ol.how li, ul.plain li { margin: .35rem 0; }
+ul.linklist, ol.linklist { list-style: none; padding: 0; }
+.linklist li, .flow li, .skill li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.linklist span, .flow span, .skill span { color: var(--muted); font-size: .9rem; text-align: right; }
+.skill { list-style: none; padding: 0; }
+.flow { list-style: none; padding: 0; margin: 0; }
+.example { background: var(--accent); border-left: 4px solid var(--brand); padding: 10px 14px; border-radius: 6px; margin: .3rem 0; }
+.excerpt { background: var(--bg); border: 1px dashed var(--line); border-radius: 8px; padding: 10px 14px; font-size: .9rem; color: var(--muted); margin: 8px 0 12px; }
+.excerpt span { display: block; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+
+label { display: block; font-weight: 700; margin: .8rem 0 .3rem; }
+textarea {
+  width: 100%; font: inherit; font-size: 1rem; padding: 12px 14px; color: var(--ink);
+  background: var(--card); border: 2px solid var(--line); border-radius: 10px; resize: vertical; min-height: 96px;
+}
+.checks { list-style: none; padding: 0; margin: 0 0 8px; }
+.checks label { font-weight: 500; display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; margin: 0; cursor: pointer; }
+.checks input { width: 24px; height: 24px; accent-color: var(--brand); flex: none; margin-top: 3px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center; gap: 6px;
+  font: inherit; font-weight: 700; min-height: 48px; padding: 10px 18px; border-radius: 10px;
+  border: 2px solid var(--brand); cursor: pointer; text-decoration: none; background: var(--card); color: var(--brand);
+}
+.btn.primary { background: var(--brand); color: var(--brand-ink); }
+.btn.warn { border-color: var(--warn); color: var(--warn); }
+.btn.big { min-height: 56px; font-size: 1.05rem; padding: 12px 22px; }
+.btn small { font-weight: 400; opacity: .8; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+.status { color: var(--brand); font-weight: 700; }
+
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin: 20px 0; }
+.pager .btn { flex: 1 1 260px; }
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; color: var(--muted); font-size: .9rem; padding: 16px 0; }
+.switch { display: flex; gap: 8px; align-items: center; margin: 0; font-weight: 500; }
+.switch input { width: 20px; height: 20px; }
+
+@media (max-width: 600px) {
+  html { font-size: 17px; }
+  h1 { font-size: 1.55rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .linklist li, .flow li, .skill li { flex-direction: column; gap: 2px; }
+  .linklist span, .flow span, .skill span { text-align: left; }
+  .btn { width: 100%; }
+}
+@media (min-width: 1100px) { html { font-size: 20px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
